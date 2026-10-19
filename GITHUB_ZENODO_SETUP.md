@@ -1,52 +1,22 @@
-# GitHub + Zenodo setup before journal submission
+# GitHub + Zenodo release status
 
-## 1. Create the GitHub repository
+The public software repository and the reserved Zenodo DOI are now fixed for version `1.0.0`.
 
-Create a **public** repository named:
+- **GitHub:** https://github.com/bouzianiali/explainable-multimodal-nsclc-survival
+- **Zenodo DOI:** 10.5281/zenodo.23483737
+- **Zenodo DOI URL:** https://doi.org/10.5281/zenodo.23483737
+- **Primary creator ORCID:** https://orcid.org/0009-0002-2940-6488
+- **License:** MIT
+- **Resource type:** Software
+- **Version:** 1.0.0
 
-`explainable-multimodal-nsclc-survival`
+## Before publishing the Zenodo draft
 
-Do not initialize it with a new README, .gitignore, or license because those files are already included here.
+1. Keep the Zenodo record as a draft until the repository metadata and archive ZIP have been checked.
+2. Set the Zenodo publication date to the actual date on which the record is published.
+3. Upload the finalized repository ZIP generated from this release.
+4. Verify the two creators, affiliation, keywords, GitHub repository URL, Python programming language, and MIT license.
+5. Run `python scripts/check_public_release.py` locally and require a PASS.
+6. Publish the Zenodo record only after the checks above are complete.
 
-Upload the **contents of this folder** (not the outer ZIP as a single file) to the root of the repository.
-
-After upload, the repository address will have the form:
-
-`https://github.com/YOUR_USERNAME/explainable-multimodal-nsclc-survival`
-
-## 2. Reserve a Zenodo DOI
-
-Create a new Zenodo upload and select **Software** as the resource type. Reserve a DOI in the draft before publishing it.
-
-Recommended title:
-
-`Explainable multimodal NSCLC survival prediction under clinical-modality absence`
-
-Use version `1.0.0`, public access, and the MIT license for the code. The TCIA/LUNG1 data are not redistributed.
-
-## 3. Finalize repository metadata
-
-Once both values are known, replace:
-
-- `REPLACE_WITH_GITHUB_URL`
-- `REPLACE_WITH_ZENODO_DOI`
-
-in `README.md` and `CITATION.cff`.
-
-You can use:
-
-```bash
-python release_tools/finalize_release_links.py \
-  --github-url "https://github.com/YOUR_USERNAME/explainable-multimodal-nsclc-survival" \
-  --zenodo-doi "10.5281/zenodo.XXXXXXXX"
-```
-
-Then commit/push those final metadata changes to GitHub.
-
-## 4. Publish the Zenodo software record
-
-Create a ZIP of the finalized repository and upload that **single ZIP** to the Zenodo software record. Preview the record, verify metadata, then publish it. The reserved DOI becomes active at publication.
-
-## 5. Update the manuscript
-
-In the manuscript Code Availability section, insert the final GitHub URL and Zenodo DOI. The Zenodo software release can also be cited formally in the references.
+The original LUNG1/TCIA imaging, segmentations, raw clinical tables, patient-level outcomes, and trained checkpoints are not redistributed.

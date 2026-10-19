@@ -34,8 +34,17 @@ for p in ROOT.rglob('*'):
     low=p.name.lower()
     if low.endswith(('.dcm','.nii','.nii.gz','.nrrd','.mha','.mhd','.npz','.pt','.pth')):
         raise RuntimeError(f'Potential source data/checkpoint included: {p.relative_to(ROOT)}')
-# Release placeholders must be replaced before final public deposition.
+# Final release metadata must be resolved before public deposition.
+expected = {
+    'github': 'https://github.com/bouzianiali/explainable-multimodal-nsclc-survival',
+    'doi': '10.5281/zenodo.23483737',
+    'orcid': '0009-0002-2940-6488',
+}
 for f in ['README.md','CITATION.cff']:
     txt=(ROOT/f).read_text(errors='ignore')
-    if 'REPLACE_WITH_' in txt: print('WARNING placeholder remains in',f)
-print('PUBLIC RELEASE CHECK: PASS (placeholders may still require replacement)')
+    if 'REPLACE_WITH_' in txt:
+        raise RuntimeError(f'Unresolved release placeholder remains in {f}')
+for value in expected.values():
+    if not any(value in (ROOT/f).read_text(errors='ignore') for f in ['README.md','CITATION.cff']):
+        raise RuntimeError(f'Expected release metadata not found: {value}')
+print('PUBLIC RELEASE CHECK: PASS')

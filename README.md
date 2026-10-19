@@ -126,10 +126,19 @@ Other analysis scripts are in `scripts/` and expose `--help` where applicable.
 
 ## Public release and manuscript links
 
-- GitHub: **REPLACE_WITH_GITHUB_URL**
-- Zenodo archived release: **REPLACE_WITH_ZENODO_DOI**
+- GitHub: **https://github.com/bouzianiali/explainable-multimodal-nsclc-survival**
+- Zenodo archive DOI: **https://doi.org/10.5281/zenodo.23483737**
 
-See `ZENODO_RELEASE.md` for the release workflow.
+See `ZENODO_RELEASE.md` for the final archive metadata and publication checklist.
+
+
+## Creators and citation
+
+- **Ali Bouziani** — ORCID: https://orcid.org/0009-0002-2940-6488
+- **Naji Abdelwahab**
+- Affiliation: Mohammed First University, National School of Applied Sciences of Oujda (ENSAO), Mathematics, Computer Science and Mechanics Team, Oujda, Morocco.
+
+Please cite the archived software release using DOI **10.5281/zenodo.23483737**. Machine-readable citation metadata are provided in `CITATION.cff`.
 
 ## Software provenance
 

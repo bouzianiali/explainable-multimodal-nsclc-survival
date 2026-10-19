@@ -1,53 +1,45 @@
-# GitHub + Zenodo public release workflow
+# Zenodo archive metadata and final publication checklist
 
-The repository is designed to be public on GitHub and archived with a DOI on Zenodo. Two valid workflows are possible.
+## Fixed release identifiers
 
-## Recommended for the first manuscript submission: manual Zenodo deposit with a reserved DOI
-
-This route avoids a circular problem where the DOI is minted only after a GitHub release, but you want the DOI already written in the manuscript and repository metadata.
-
-1. Create a **public GitHub repository** named `explainable-multimodal-nsclc-survival`.
-2. Upload the **contents** of this repository folder (not the enclosing ZIP).
-3. On Zenodo, create a new upload with resource type **Software**.
-4. Before publishing, use **Get a DOI now!** to reserve a Zenodo DOI.
-5. Run:
-
-   ```bash
-   python release_tools/finalize_release_links.py \
-     --github https://github.com/USERNAME/explainable-multimodal-nsclc-survival \
-     --zenodo-doi 10.5281/zenodo.XXXXXXXX
-   ```
-
-6. Commit/push the finalized README and `CITATION.cff` to GitHub.
-7. Create GitHub tag/release `v1.0.0`.
-8. Download or create the `v1.0.0` source ZIP and upload that exact software snapshot to the Zenodo draft.
-9. Complete Zenodo metadata (creators, affiliation, title, keywords, MIT license, related manuscript if available) and publish the record.
-10. Insert the same GitHub URL and Zenodo DOI into the manuscript Code Availability statement and recompile before journal submission.
-
-Zenodo registers the reserved DOI when the draft is published. Do not delete the draft after reserving the DOI or the reservation is lost.
-
-## Alternative: Zenodo GitHub integration
-
-1. Link your Zenodo account to GitHub.
-2. In Zenodo, open the GitHub integration page, sync repositories, and enable this repository.
-3. Create a GitHub release/tag such as `v1.0.0`.
-4. Zenodo automatically ingests the enabled GitHub release and creates the software record/DOI.
-5. Add the resulting DOI to the live GitHub README/CITATION metadata and to the manuscript. If you want the DOI embedded in an archived software snapshot itself, make a subsequent finalized release.
-
-## Suggested metadata
-
-- **Title:** Explainable multimodal NSCLC survival prediction under clinical-modality absence
-- **Resource type:** Software
+- **GitHub repository:** https://github.com/bouzianiali/explainable-multimodal-nsclc-survival
+- **Reserved Zenodo DOI:** 10.5281/zenodo.23483737
+- **DOI URL:** https://doi.org/10.5281/zenodo.23483737
 - **Version:** 1.0.0
-- **Creators:** Ali Bouziani; Naji Abdelwahab
-- **License:** MIT (code only; TCIA data are not redistributed)
-- **Keywords:** NSCLC; survival analysis; multimodal learning; explainable AI; CT; Cox model; missing modality; medical imaging
-- **Description:** Reproducibility code and aggregate outputs for the associated LUNG1 internal-evaluation manuscript. Source TCIA images, segmentations, clinical tables, patient-level outcomes, and trained checkpoints are excluded.
+- **Resource type:** Software
+- **License:** MIT
 
-## Final checks
+## Creators
 
-```bash
-python scripts/check_public_release.py
-```
+1. **Ali Bouziani** — ORCID: https://orcid.org/0009-0002-2940-6488
+2. **Naji Abdelwahab**
 
-The checker should pass. Before public release, no `REPLACE_WITH_...` placeholders should remain in `README.md` or `CITATION.cff`.
+Affiliation for both creators:
+
+> Mohammed First University, National School of Applied Sciences of Oujda (ENSAO), Mathematics, Computer Science and Mechanics Team, Oujda, Morocco
+
+## Recommended Zenodo title
+
+**Explainable Multimodal Survival Prediction in NSCLC under Clinical-Modality Absence: Development and Internal Evaluation on LUNG1**
+
+## Recommended description
+
+Software and reproducibility materials supporting a retrospective methodological study of multimodal overall-survival prediction in non-small cell lung cancer (NSCLC) using pretreatment CT and clinical data from the public LUNG1 cohort. The archive includes clinical-data preparation rules, locked patient-split identifiers, CT preprocessing, survival-model training and evaluation scripts, controlled clinical-modality missingness experiments, calibration analyses, explainability analyses, crop-shift sensitivity analysis, and five-seed ablation aggregation. Original LUNG1 imaging and clinical data are not redistributed and should be obtained directly from The Cancer Imaging Archive (TCIA).
+
+## Recommended keywords
+
+NSCLC; non-small cell lung cancer; survival analysis; multimodal learning; deep learning; computed tomography; explainable AI; missing modality; Cox proportional hazards; LUNG1; medical imaging.
+
+## Publication checklist
+
+1. Set **Publication date** to the actual day the Zenodo record is published.
+2. Confirm **Software**, version `1.0.0`, **MIT License**, language **English**, programming language **Python**, and development status **Active**.
+3. Confirm repository URL: https://github.com/bouzianiali/explainable-multimodal-nsclc-survival
+4. Upload the finalized `v1.0.0` repository ZIP.
+5. Run `python scripts/check_public_release.py` and require PASS before upload.
+6. Preview the Zenodo record and verify author order, affiliation, DOI, title, description, keywords, and file list.
+7. Publish only after these checks are complete. The reserved DOI becomes active when the record is published.
+
+## Data boundary
+
+LUNG1 CT images, segmentations, raw clinical tables, patient-level outcomes, and trained checkpoints are intentionally excluded. Source data must be obtained from TCIA and cited according to TCIA requirements.

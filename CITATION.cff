@@ -1,16 +1,17 @@
 cff-version: 1.2.0
 message: "If you use this code, please cite the software release and the associated article."
-title: "Explainable multimodal NSCLC survival prediction under clinical-modality absence"
+title: "Explainable Multimodal Survival Prediction in NSCLC under Clinical-Modality Absence: Development and Internal Evaluation on LUNG1"
 type: software
 authors:
   - family-names: Bouziani
     given-names: Ali
+    orcid: "https://orcid.org/0009-0002-2940-6488"
+    affiliation: "Mohammed First University, National School of Applied Sciences of Oujda (ENSAO), Mathematics, Computer Science and Mechanics Team, Oujda, Morocco"
   - family-names: Abdelwahab
     given-names: Naji
+    affiliation: "Mohammed First University, National School of Applied Sciences of Oujda (ENSAO), Mathematics, Computer Science and Mechanics Team, Oujda, Morocco"
 version: 1.0.0
-date-released: 2026-10-16
 license: MIT
-repository-code: "REPLACE_WITH_GITHUB_URL"
-identifiers:
-  - type: doi
-    value: "REPLACE_WITH_ZENODO_DOI"
+repository-code: "https://github.com/bouzianiali/explainable-multimodal-nsclc-survival"
+doi: "10.5281/zenodo.23483737"
+url: "https://doi.org/10.5281/zenodo.23483737"
