@@ -1,0 +1,5 @@
+IMPORTANT AGGREGATION AUDIT
+
+The uploaded repeated_seed_ABC archive contains all 15 completed A/B/C run folders for seeds 20260926-20260930. However, the root-level RepeatedSeed_* aggregate files were overwritten during the last resume run and therefore summarize only seed 20260930 (N_seeds=1). They must not be used as five-seed summaries.
+
+The files prefixed RepeatedSeed_5Seed_* in this audit folder were recomputed directly from each run's Robustness_Scenario_Summary.csv for the five prespecified seeds: 20260926, 20260927, 20260928, 20260929, and 20260930. The erroneous seed_2026030 folder/logs, created by a transient typo, were excluded.

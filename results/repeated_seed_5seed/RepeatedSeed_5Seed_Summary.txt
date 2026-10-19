@@ -1,0 +1,38 @@
+LUNG1 — CORRECTED FIVE-SEED A/B/C ABLATION
+
+Seeds: 20260926, 20260927, 20260928, 20260929, 20260930
+N seeds: 5
+Primary readout: tuning/validation; held-out test descriptive only.
+
+Clinical missing 0%:
+  A Gate only: C=0.5710±0.0048; AUC=0.6369±0.0095; IBS=0.2360±0.0006
+  B Gate + ModDrop: C=0.5659±0.0061; AUC=0.6318±0.0105; IBS=0.2366±0.0007
+  C Gate + ModDrop + anchor: C=0.5674±0.0082; AUC=0.6324±0.0116; IBS=0.2366±0.0009
+
+Clinical missing 30%:
+  A Gate only: C=0.5624±0.0017; AUC=0.6215±0.0040; IBS=0.2364±0.0003
+  B Gate + ModDrop: C=0.5584±0.0058; AUC=0.6177±0.0077; IBS=0.2367±0.0005
+  C Gate + ModDrop + anchor: C=0.5596±0.0062; AUC=0.6182±0.0075; IBS=0.2367±0.0007
+
+Clinical missing 100%:
+  A Gate only: C=0.5598±0.0014; AUC=0.6119±0.0031; IBS=0.2368±0.0001
+  B Gate + ModDrop: C=0.5587±0.0010; AUC=0.6107±0.0011; IBS=0.2369±0.0002
+  C Gate + ModDrop + anchor: C=0.5593±0.0013; AUC=0.6118±0.0009; IBS=0.2369±0.0002
+
+Paired component contrasts (mean ± SD across seeds):
+  missing=0% C_index: B-A=-0.0051±0.0057; C-B=+0.0015±0.0062; C-A=-0.0036±0.0058
+  missing=0% Mean_dynamic_AUC: B-A=-0.0050±0.0074; C-B=+0.0006±0.0044; C-A=-0.0044±0.0083
+  missing=0% Integrated_Brier_Score: B-A=+0.0006±0.0004; C-B=-0.0000±0.0003; C-A=+0.0006±0.0005
+  missing=30% C_index: B-A=-0.0040±0.0049; C-B=+0.0011±0.0044; C-A=-0.0028±0.0046
+  missing=30% Mean_dynamic_AUC: B-A=-0.0038±0.0113; C-B=+0.0005±0.0033; C-A=-0.0033±0.0104
+  missing=30% Integrated_Brier_Score: B-A=+0.0003±0.0005; C-B=+0.0000±0.0003; C-A=+0.0003±0.0005
+  missing=100% C_index: B-A=-0.0012±0.0022; C-B=+0.0006±0.0011; C-A=-0.0005±0.0017
+  missing=100% Mean_dynamic_AUC: B-A=-0.0012±0.0031; C-B=+0.0011±0.0015; C-A=-0.0001±0.0027
+  missing=100% Integrated_Brier_Score: B-A=+0.0001±0.0002; C-B=-0.0000±0.0001; C-A=+0.0001±0.0002
+
+Guardrails:
+- Same locked patient split and CT-only initialization for all runs.
+- Only training RNG seed varied; non-seed hyperparameters were fixed.
+- Five seeds quantify optimization variability conditional on the fixed split/initialization; they do not assess split variability or external transportability.
+- No seed-level significance testing is used; magnitude, direction, and SD are reported.
+- The held-out test set was not used to choose A/B/C.

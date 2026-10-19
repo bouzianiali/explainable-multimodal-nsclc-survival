@@ -1,0 +1,4 @@
+source_variable,sentinel_value,public_action,reason
+clinical.T.Stage,5,MISSING,non-standard sentinel-like category in source table
+Clinical.N.Stage,4,MISSING,non-standard sentinel-like category in source table
+Clinical.M.Stage,3,MISSING,non-standard sentinel-like category in source table

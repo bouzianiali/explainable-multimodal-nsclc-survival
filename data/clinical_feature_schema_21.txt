@@ -1,0 +1,21 @@
+age
+gender_female
+gender_male
+clinical.T.Stage_1.0
+clinical.T.Stage_2.0
+clinical.T.Stage_3.0
+clinical.T.Stage_4.0
+clinical.T.Stage_MISSING
+Clinical.N.Stage_0.0
+Clinical.N.Stage_1.0
+Clinical.N.Stage_2.0
+Clinical.N.Stage_3.0
+Clinical.N.Stage_MISSING
+Clinical.M.Stage_0.0
+Clinical.M.Stage_1.0
+Clinical.M.Stage_MISSING
+Histology_MISSING
+Histology_adenocarcinoma
+Histology_large cell
+Histology_nos
+Histology_squamous cell carcinoma

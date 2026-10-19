@@ -1,0 +1,72 @@
+cohort: NSCLC-Radiomics (LUNG1)
+n: 422
+split:
+  train: 295
+  tuning: 63
+  held_out_test: 64
+ct_preprocessing:
+  clip_hu:
+  - -1000
+  - 400
+  tumor_margin_mm: 20
+  spacing_mm:
+  - 1
+  - 1
+  - 1
+  array_shape_zyx:
+  - 192
+  - 160
+  - 224
+  pad_hu: -1000
+  network_range:
+  - 0
+  - 1
+clinical_predictors:
+- age
+- sex
+- clinical T
+- clinical N
+- clinical M
+- histology
+tnm_sentinel_to_missing:
+  T: 5
+  N: 4
+  M: 3
+survival_objective: full training-cohort Cox partial likelihood with Efron ties via
+  exact two-pass replay
+times_days:
+- 365
+- 730
+- 1095
+primary_seed: 20260926
+repeated_seeds:
+- 20260926
+- 20260927
+- 20260928
+- 20260929
+- 20260930
+training:
+  epochs_max: 60
+  freeze_epochs: 5
+  batch_size: 2
+  fusion_lr: 0.0001
+  ct_lr: 2.0e-06
+  weight_decay: 0.0001
+  dropout: 0.3
+  patience: 12
+  scenario_repeats: 500
+variants:
+  A:
+    clinical_moddrop: 0.0
+    anchor_lambda: 0.0
+  B:
+    clinical_moddrop: 0.25
+    anchor_lambda: 0.0
+  C:
+    clinical_moddrop: 0.25
+    anchor_lambda: 1.0
+guardrails:
+- fit on training only
+- checkpoint selection on tuning only
+- held-out test not used for model selection
+- repeated-seed primary readout is tuning 0/30/100% clinical absence
